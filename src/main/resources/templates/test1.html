@@ -1,0 +1,148 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<head>
+    <meta charset="UTF-8">
+
+
+    <title>表单校验</title>
+    <style >
+        label{
+            color: red;
+        }
+        table {
+            margin-top: 10px;
+            font-size:15px;
+            width:400px;
+            height:200px;
+            border: red solid 1px;
+        }
+        button{
+            width:100px;
+            height:40px;
+        }
+    </style>
+</head>
+<script type="text/javascript">
+    document.username.focus();
+    function checkuser(obj) {
+        msg1=document.getElementById("msg1");
+        msg2=document.getElementById("msg2");
+        msg3=document.getElementById("msg3");
+        msg4=document.getElementById("msg4");
+        msg5=document.getElementById("msg5");
+        msg6=document.getElementById("msg6");
+        if (obj.value == 0||obj.value=="") {
+            msg1.innerHTML = "用户名不能为空";
+            return false;
+        }
+        msg1.innerHTML = "";
+        return true;
+    }
+    function checkuser1(obj) {
+
+        if (obj.value.length < 8) {
+            msg2.innerHTML = "长度不能低于8";
+
+            return false;
+        }
+        msg2.innerHTML = "";
+        return true;
+    }
+    function checkuser2(obj) {
+        if (document.getElementById("password").value != obj.value) {
+            msg3.innerHTML = "密码不相同";
+            obj.value = document.getElementById("password").value;
+            return false;
+        }
+        msg3.innerHTML = "";
+        return true;
+    }
+    function checkuser3(obj) {
+        if (obj.value <= 17) {
+            msg4.innerHTML = "低于17岁不合法";
+
+            return false;
+        }else{
+            msg4.innerHTML = "";
+            return true;}
+    }
+    function checkuser4(obj) {
+        if (obj.value<30||obj.value>150) {
+            msg5.innerHTML = "体重输入不合法";
+
+            return false;
+        }
+        msg5.innerHTML = "";
+        return true;
+    }
+    function checkuser5(obj) {
+        var myreg = /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/;
+        if(obj.value === ""){ //输入不能为空
+            msg6.innerHTML="输入不能为空!";
+            return false;
+        }else if(!myreg.test(obj.value)){ //正则验证不通过，格式不对
+            msg6.innerHTML="邮箱验证失败";
+            return false;
+        }else{
+            msg6.innerHTML = "";
+            return true;
+        }
+
+    }
+    function submit() {
+        if (document.getElementById("msg4").innerHTML != ""
+            || document.getElementById("msg3").innerHTML != ""
+            || document.getElementById("msg2").innerHTML != ""
+            || document.getElementById("msg1").innerHTML != "")
+
+
+            alert("提交失败！");
+        else
+            alert("提交成功！");
+    }
+</script>
+
+<body>
+<center>
+    <h2>提交表单</h2>
+    <table border="1">
+        <tr>
+            <td>用户名：</td>
+            <td><input type="text" id="username" name="username"
+                       οnblur="checkuser(this)"><label id="msg1"></label></td>
+        </tr>
+        <tr>
+            <td>密码：</td>
+            <td><input type="password" id="password" name="password"
+                       οnblur="checkuser1(this)"><label id="msg2"></label></td>
+        </tr>
+        <tr>
+            <td>确认密码：</td>
+            <td><input type="password" class="password1" name="password1"
+                       οnblur="checkuser2(this)"><label id="msg3"></label></td>
+        <tr>
+            <td>年龄：</td>
+            <td><input type="number" class="age" name="age" value="18"
+                       οnblur="checkuser3(this)"><label id="msg4"></label></td>
+        </tr>
+        <tr>
+            <td>体重：</td>
+            <td><input type="number" class="weight" name="weight"
+                       οnblur="checkuser4(this)"><label id="msg5"></label></td>
+        </tr>
+        <tr>
+            <td>邮箱：</td>
+            <td><input type="email" name="email"
+                       οnblur="checkuser5(this)"><label id="msg6"></label></td>
+        </tr>
+        <tr>
+            <td></td>
+            <th>
+                <button colspan="2" οnclick="submit()">提交</button>
+            </th>
+        </tr>
+    </table>
+
+</center>
+</body>
+</html>

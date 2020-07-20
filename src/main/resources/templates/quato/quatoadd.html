@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!-- saved from url=(0052)http://getbootstrap.com/docs/4.0/examples/dashboard/ -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>ACM</title>
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="/css/dashboard.css" rel="stylesheet">
+    <style type="text/css">
+        /* Chart.js */
+
+        @-webkit-keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        @keyframes chartjs-render-animation {
+            from {
+                opacity: 0.99
+            }
+            to {
+                opacity: 1
+            }
+        }
+
+        .chartjs-render-monitor {
+            -webkit-animation: chartjs-render-animation 0.001s;
+            animation: chartjs-render-animation 0.001s;
+        }
+    </style>
+</head>
+
+<body>
+<div th:replace="commons/teabar::topbar"></div>
+
+<div class="container-fluid">
+    <div class="row">
+        <div th:replace="commons/teabar::sidebar"></div>
+
+        <main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+            <form th:action="@{/quatoadd2}">
+                <div class="form-group">
+                    <!--							<label >username</label>-->
+                    <!--							<input name="username" type="text" class="form-control" placeholder="username">-->
+                    <!--						</div>-->
+                    <!--						<div class="form-group">-->
+                    <label >名额</label>
+                    <input name="minge"type="text" class="form-control" placeholder="请输入申请名额">
+                </div>
+                <div class="form-group">
+                    <label >联系人</label>
+                    <input name="per"type="text" class="form-control" placeholder="请输入联系人">
+                </div>
+                <div class="form-group">
+                    <label >联系电话</label>
+                    <input name="tel"type="text" class="form-control" placeholder="请输入联系电话">
+                </div>
+                <div class="form-group">
+                    <label >电子邮件</label>
+                    <input name="email"type="text" class="form-control" placeholder="请输入电子邮件">
+                </div>
+                <div class="form-group">
+                    <label >信息</label>
+                    <input name="msg"type="text" class="form-control" placeholder="请输入额外信息">
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="checkbox1" value="0">
+                    <input name="checkbox1" type="checkbox" value="1"  />中国大陆以外地区的高校
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="checkbox2" value="0">
+                    <input name="checkbox2" type="checkbox" value="1"  />为辽宁省程序设计竞赛的普及和发展做出贡献的学校，或为我校程序设计竞赛提供过帮助的学校
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="checkbox3" value="0">
+                    <input name="checkbox3" type="checkbox" value="1"  />有大于或等于三支参赛队伍进入网络赛队伍排名前400名
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="checkbox4" value="0">
+                    <input name="checkbox4" type="checkbox" value="1"  />新疆，青海，宁夏，甘肃，陕西，西藏，贵州，海南，云南，广西，内蒙古的高校，且尚未获得参赛名额
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="checkbox5" value="0">
+                    <input name="checkbox5" type="checkbox" value="1"  />女生队伍
+                </div>
+
+
+                <!--						<div class="form-group">-->
+                <!--							<label >team</label>-->
+                <!--							<select name="team"class="form-control" >-->
+                <!--								<option th:each="team:${teams}" th:text="${team.team}"></option>-->
+
+                <!--							</select>-->
+                <!--						</div>-->
+                <button type="submit" class="btn btn-primary">添加</button>
+
+            </form>
+        </main>
+    </div>
+</div>
+
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<script type="text/javascript" src="/js/jquery-3.2.1.slim.min.js"></script>
+<script type="text/javascript" src="/js/popper.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.min.js"></script>
+
+<!-- Icons -->
+<script type="text/javascript" src="/js/feather.min.js"></script>
+<script>
+    feather.replace()
+</script>
+
+<!-- Graphs -->
+<script type="text/javascript" src="/js/Chart.min.js"></script>
+
+<script>
+
+    {
+        alert("请在信息中填写申请名额构成，我们将核实后予以审批");
+    }
+
+</script>
+
+</body>
+
+</html>
